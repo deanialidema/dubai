@@ -1,0 +1,450 @@
+/* Google Login Styles - Ported from PHP version */
+
+:root {
+  --principal: #202124;
+  --p: #797d80;
+  --blue: #1973e8;
+  --border-card: #dadce0;
+}
+
+.google-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+}
+
+.google-card {
+  min-height: 500px;
+  width: 448px;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 40px 36px;
+  background: white;
+  position: relative;
+}
+
+.google-card.otp-screen {
+  min-height: 600px;
+}
+
+.google-card h2 {
+  padding-top: 16px;
+  font-weight: 400;
+  font-size: 24px;
+  color: rgb(32,33,36);
+  font-family: "Google Sans","Noto Sans Myanmar UI",arial,sans-serif;
+  line-height: 1.3333;
+  margin: 0;
+}
+
+.google-card h3 {
+  padding: 11px 0 35px 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--p);
+  margin: 0;
+}
+
+.google-input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.google-input-container input {
+  padding: 13px 15px;
+  width: 100%;
+  height: 55px;
+  border-radius: 4px;
+  border: 1px solid var(--border-card);
+  outline-color: var(--blue);
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  transition: border-color 0.1s;
+}
+
+.google-input-container input:focus {
+  border-color: var(--blue);
+  border-width: 2px;
+}
+
+.google-floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 15px;
+  top: 18px;
+  transition: 0.1s ease-out;
+  color: #5f6368;
+  background: white;
+  padding: 0;
+}
+
+.google-input-container input:focus + .google-floating-label,
+.google-input-container input:not(:placeholder-shown) + .google-floating-label {
+  top: -8px;
+  margin-left: -5px;
+  font-size: 13px;
+  color: var(--blue);
+  padding: 0 5px;
+}
+
+.google-alert-error {
+  color: rgb(217,48,37);
+  display: flex;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: normal;
+  margin-top: 8px;
+  font-weight: 400;
+  width: 100%;
+}
+
+.google-alert-error svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.google-input-error input {
+  border: 2px solid rgb(217,48,37) !important;
+  color: rgb(217,48,37) !important;
+}
+
+.google-input-error .google-floating-label {
+  color: rgb(217,48,37) !important;
+}
+
+.google-input-error input:focus + .google-floating-label,
+.google-input-error input:not(:placeholder-shown) + .google-floating-label {
+  color: rgb(217,48,37) !important;
+}
+
+.google-btn-email {
+  padding-top: 12px;
+  width: 100%;
+}
+
+.google-btn-email button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 14px;
+  outline: none;
+  padding: 0;
+}
+
+.google-btn-email button:hover {
+  text-decoration: underline;
+}
+
+.google-card p {
+  padding-top: 28px;
+  color: var(--p);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+}
+
+.google-card p a {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.google-card p a:hover {
+  text-decoration: underline;
+}
+
+.google-card-bottom {
+  margin-top: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.google-card-bottom a {
+  border: none;
+  cursor: pointer;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 8px;
+  padding: 8px;
+}
+
+.google-card-bottom a:hover {
+  text-decoration: underline;
+  background: rgba(26, 115, 232, 0.04);
+  border-radius: 4px;
+}
+
+.google-card-bottom button {
+  background: var(--blue);
+  color: white;
+  padding: 9px 24px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+}
+
+.google-card-bottom button:hover {
+  background: #1765cc;
+  box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+}
+
+.google-card-bottom button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.google-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  font-size: 12px;
+  width: 448px;
+  color: var(--p);
+  flex-wrap: wrap;
+}
+
+.google-footer-span {
+  display: flex;
+  gap: 24px;
+}
+
+.google-footer-span span {
+  cursor: pointer;
+  color: #5f6368;
+}
+
+.google-footer-span span:hover {
+  text-decoration: underline;
+}
+
+/* Account selector */
+.google-account-selector {
+  height: 32px;
+  margin-top: 8px;
+  margin-bottom: -0.3rem;
+  width: 100%;
+}
+
+.google-account-chip {
+  border-radius: 16px;
+  padding: 0 15px 0 5px;
+  background: #fff;
+  border: 1px solid rgb(218,220,224);
+  box-sizing: border-box;
+  color: rgb(60,64,67);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-family: "Google Sans","Noto Sans Myanmar UI",arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .25px;
+  max-width: 100%;
+  position: relative;
+  height: 32px;
+  transition: background-color 0.2s;
+}
+
+.google-account-chip:hover {
+  background: #f8f9fa;
+}
+
+.google-account-icon {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+  color: rgb(95,99,104);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-account-icon svg {
+  height: 20px;
+  width: 20px;
+  color: rgb(60,64,67);
+}
+
+.google-account-email {
+  direction: ltr;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  line-height: 30px;
+}
+
+.google-account-dropdown {
+  color: rgb(60,64,67);
+  flex-shrink: 0;
+  height: 18px;
+  margin-left: 4px;
+  width: 18px;
+}
+
+/* Show password checkbox */
+.google-checkbox-container {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+  width: 100%;
+}
+
+.google-checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  cursor: pointer;
+  accent-color: var(--blue);
+}
+
+.google-checkbox-container label {
+  font-size: 14px;
+  color: rgb(60,64,67);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Progress bar */
+.google-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: #1973e8;
+  transition: width 0.7s ease-in-out;
+  border-radius: 8px 0 0 0;
+}
+
+/* Loading spinner */
+.google-spinner {
+  animation: rotator 1.4s linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+.google-spinner-path {
+  stroke-dasharray: 187;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
+
+@keyframes colors {
+  0% {
+    stroke: #4285F4;
+  }
+  25% {
+    stroke: #DE3E35;
+  }
+  50% {
+    stroke: #F7C223;
+  }
+  75% {
+    stroke: #1B9A59;
+  }
+  100% {
+    stroke: #4285F4;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}
+
+/* OTP specific styles */
+.google-otp-container {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.google-otp-description {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.google-otp-email {
+  font-size: 14px;
+  color: #202124;
+  margin-bottom: 16px;
+}
+
+.google-otp-input {
+  width: 100%;
+  padding: 13px 15px;
+  font-size: 16px;
+  border: 1px solid var(--border-card);
+  border-radius: 4px;
+  outline-color: var(--blue);
+  font-family: "Roboto", sans-serif;
+}
+
+.google-otp-input:focus {
+  border-color: var(--blue);
+  border-width: 2px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .google-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 32px 24px;
+  }
+  
+  .google-footer {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
